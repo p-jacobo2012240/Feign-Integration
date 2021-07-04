@@ -1,1 +1,1 @@
-this repo contains java ee examples
+this repo contains java ee examples now jackarta ee
