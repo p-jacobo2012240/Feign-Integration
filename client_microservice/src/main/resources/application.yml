@@ -1,7 +1,9 @@
-
+#Custom PORT
 server.port: 8083
 
 spring:
+  application:
+    name: client_microservice
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
