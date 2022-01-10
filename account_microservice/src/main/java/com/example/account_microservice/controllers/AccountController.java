@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/account")
 public class AccountController {
 
     @Autowired
     private AccountRepository accountRepository;
 
-    @GetMapping
+    @GetMapping("/account")
     public List<Account> allAccount() {
         return accountRepository.findAll();
     }

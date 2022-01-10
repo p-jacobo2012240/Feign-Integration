@@ -3,7 +3,7 @@ server.port: 8083
 
 spring:
   application:
-    name: client_microservice
+    name: clientms
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
@@ -16,6 +16,10 @@ spring:
   properties:
     hibernate:
       schema: clients
+
+proxy:
+  name: accountms
+  url: http://localhost:8084
 
 springdoc:
   api-docs:
