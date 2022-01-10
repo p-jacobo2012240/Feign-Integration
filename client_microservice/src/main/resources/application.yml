@@ -9,8 +9,13 @@ spring:
     username: postgres
     password: dev2@21
     driverClassName: org.postgresql.Driver
+    hikari:
+      schema: clients
   jpa:
     spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
+  properties:
+    hibernate:
+      schema: clients
 
 springdoc:
   api-docs:
