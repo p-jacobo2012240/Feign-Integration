@@ -1,0 +1,22 @@
+#Custom PORT
+server.port: 8084
+
+spring:
+  application:
+    name: account_microservice
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: dev2@21
+    driverClassName: org.postgresql.Driver
+    hikari:
+      schema: accounts
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
+  properties:
+    hibernate:
+      schema: accounts
+
+springdoc:
+  api-docs:
+    path: /api-docs
