@@ -1,0 +1,26 @@
+#Custom PORT
+server.port: 8083
+
+spring:
+  application:
+    name: clientms
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: dev2@21
+    driverClassName: org.postgresql.Driver
+    hikari:
+      schema: clients
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
+  properties:
+    hibernate:
+      schema: clients
+
+proxy:
+  name: accountms
+  url: http://localhost:8084
+
+springdoc:
+  api-docs:
+    path: /api-docs
