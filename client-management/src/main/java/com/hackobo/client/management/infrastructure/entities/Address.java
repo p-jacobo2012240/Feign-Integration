@@ -13,7 +13,7 @@ public class Address implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "address_id")
-    private Integer address_id;
+    private Integer addressId;
 
     @Column(name = "country")
     private String country;
