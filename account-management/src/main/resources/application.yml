@@ -3,7 +3,7 @@ server.port: 8084
 
 spring:
   application:
-    name: accountms
+    name: account_management
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
