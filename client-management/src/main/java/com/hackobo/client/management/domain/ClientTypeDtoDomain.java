@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class ClientTypeDtoDomain {
 
-    private Integer uuid;
+    private Integer id;
 
     private String name;
 

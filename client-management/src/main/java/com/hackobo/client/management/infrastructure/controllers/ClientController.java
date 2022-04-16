@@ -2,7 +2,10 @@ package com.hackobo.client.management.infrastructure.controllers;
 
 import com.hackobo.client.management.domain.AddressCreatorDtoDomain;
 import com.hackobo.client.management.domain.AddressDtoDomain;
+import com.hackobo.client.management.domain.ClientTypeCreatorDtoDomain;
+import com.hackobo.client.management.domain.ClientTypeDtoDomain;
 import com.hackobo.client.management.infrastructure.mappers.AddressMapperDto;
+import com.hackobo.client.management.infrastructure.mappers.ClientTypeDtoMapper;
 import com.hackobo.client.management.infrastructure.services.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +22,10 @@ public class ClientController {
     private IClientService clientService;
 
     @Autowired
-    private AddressMapperDto mapper;
+    private AddressMapperDto addressDtoMapper;
+
+    @Autowired
+    private ClientTypeDtoMapper clientTypeDtoMapper;
 
     @GetMapping("/addresses")
     public ResponseEntity<List<AddressDtoDomain>> listAddresses() {
@@ -29,8 +35,25 @@ public class ClientController {
 
     @PostMapping("/addresses")
     public ResponseEntity<AddressDtoDomain> addAddress(@RequestBody AddressCreatorDtoDomain creator) {
-        AddressDtoDomain addressDtoDomain = clientService.addAddress(mapper.toDomain(creator));
+        AddressDtoDomain addressDtoDomain = clientService.addAddress(addressDtoMapper.toDomain(creator));
         return new ResponseEntity<>(addressDtoDomain, HttpStatus.OK);
     }
 
+    @DeleteMapping("/addresses/{addressId}")
+    public ResponseEntity<?> deleteAddress(@PathVariable String addressId) {
+        clientService.deleteAddress(Integer.parseInt(addressId));
+        return new ResponseEntity<>("{ \"message\" : \" address deleted! \"}", HttpStatus.OK);
+    }
+
+    @GetMapping("/type")
+    public ResponseEntity<List<ClientTypeDtoDomain>> clientTypeList() {
+        List<ClientTypeDtoDomain> clientTypes = clientService.clientTypeList();
+        return new ResponseEntity<>(clientTypes, HttpStatus.OK);
+    }
+
+    @PostMapping("/type")
+    public ResponseEntity<ClientTypeDtoDomain> addClientType(@RequestBody ClientTypeCreatorDtoDomain creator) {
+        ClientTypeDtoDomain clientTypeDtoDomain = clientService.addClientType(clientTypeDtoMapper.toDomain(creator));
+        return new ResponseEntity<>(clientTypeDtoDomain, HttpStatus.OK);
+    }
 }

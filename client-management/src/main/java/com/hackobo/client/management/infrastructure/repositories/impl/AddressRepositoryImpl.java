@@ -37,7 +37,7 @@ public class AddressRepositoryImpl implements IAddressRepository {
 
     @Override
     public void deleteById(Integer id) {
-
+        addressRepository.deleteById(id);
     }
 
     @Override

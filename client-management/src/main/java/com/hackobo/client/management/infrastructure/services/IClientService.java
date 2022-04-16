@@ -1,7 +1,8 @@
 package com.hackobo.client.management.infrastructure.services;
 
-import com.hackobo.client.management.domain.AddressCreatorDtoDomain;
 import com.hackobo.client.management.domain.AddressDtoDomain;
+import com.hackobo.client.management.domain.ClientTypeCreatorDtoDomain;
+import com.hackobo.client.management.domain.ClientTypeDtoDomain;
 
 import java.util.List;
 
@@ -11,6 +12,9 @@ public interface IClientService {
 
     AddressDtoDomain addAddress(AddressDtoDomain creator);
 
+    void deleteAddress(int addressId);
 
+    List<ClientTypeDtoDomain> clientTypeList();
 
+    ClientTypeDtoDomain addClientType(ClientTypeDtoDomain creator);
 }
