@@ -22,7 +22,6 @@ proxy:
   url: http://localhost:8084
 
 
-
 springdoc:
   api-docs:
     path: /api-docs

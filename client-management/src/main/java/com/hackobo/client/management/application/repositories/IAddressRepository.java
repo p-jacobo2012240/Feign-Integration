@@ -1,7 +1,10 @@
 package com.hackobo.client.management.application.repositories;
 
-import com.hackobo.client.management.domain.AddressDomain;
+import com.hackobo.client.management.domain.AddressDtoDomain;
 
-public interface IAddressRepository extends IBaseRepository<AddressDomain, Integer> {
+import java.util.List;
 
+public interface IAddressRepository extends IBaseRepository<AddressDtoDomain, Integer> {
+
+    List<AddressDtoDomain> listAddresses();
 }
