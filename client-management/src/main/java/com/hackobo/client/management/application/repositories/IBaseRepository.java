@@ -1,8 +1,8 @@
-package com.hackobo.client.management.application.repositories.repositories;
+package com.hackobo.client.management.application.repositories;
 
 import java.util.Optional;
 
-public interface BaseRepository<T, V>  {
+public interface IBaseRepository<T, V>  {
 
     <S extends T> S save(S s);
 

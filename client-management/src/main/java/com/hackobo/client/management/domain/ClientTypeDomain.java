@@ -3,13 +3,11 @@ package com.hackobo.client.management.domain;
 import lombok.Data;
 
 @Data
-public class AddressDomain {
+public class ClientTypeDomain {
 
     private Integer id;
 
-    private String country;
-
-    private String city;
+    private String name;
 
     private String metaData;
 }

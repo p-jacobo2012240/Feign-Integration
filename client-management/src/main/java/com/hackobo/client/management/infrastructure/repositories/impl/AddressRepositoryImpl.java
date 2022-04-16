@@ -1,11 +1,13 @@
 package com.hackobo.client.management.infrastructure.repositories.impl;
 
-import com.hackobo.client.management.application.repositories.repositories.AddressRepository;
+import com.hackobo.client.management.application.repositories.IAddressRepository;
 import com.hackobo.client.management.domain.AddressDomain;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-public class AddressRepositoryImpl implements AddressRepository  {
+@Component
+public class AddressRepositoryImpl implements IAddressRepository {
 
     @Override
     public <S extends AddressDomain> S save(S s) {

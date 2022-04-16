@@ -3,7 +3,7 @@ server.port: 8083
 
 spring:
   application:
-    name: clientms
+    name: client_management
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
@@ -20,6 +20,8 @@ spring:
 proxy:
   name: accountms
   url: http://localhost:8084
+
+
 
 springdoc:
   api-docs:
