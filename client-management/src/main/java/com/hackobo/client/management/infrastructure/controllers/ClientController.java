@@ -1,9 +1,6 @@
 package com.hackobo.client.management.infrastructure.controllers;
 
-import com.hackobo.client.management.domain.AddressCreatorDtoDomain;
-import com.hackobo.client.management.domain.AddressDtoDomain;
-import com.hackobo.client.management.domain.ClientTypeCreatorDtoDomain;
-import com.hackobo.client.management.domain.ClientTypeDtoDomain;
+import com.hackobo.client.management.domain.*;
 import com.hackobo.client.management.infrastructure.mappers.AddressMapperDto;
 import com.hackobo.client.management.infrastructure.mappers.ClientTypeDtoMapper;
 import com.hackobo.client.management.infrastructure.services.IClientService;
@@ -26,6 +23,12 @@ public class ClientController {
 
     @Autowired
     private ClientTypeDtoMapper clientTypeDtoMapper;
+
+    @GetMapping("/")
+    public ResponseEntity<List<ClientDtoDomain>> clientList() {
+        List<ClientDtoDomain> clients = clientService.clientList();
+        return new ResponseEntity<>(clients, HttpStatus.OK);
+    }
 
     @GetMapping("/addresses")
     public ResponseEntity<List<AddressDtoDomain>> listAddresses() {

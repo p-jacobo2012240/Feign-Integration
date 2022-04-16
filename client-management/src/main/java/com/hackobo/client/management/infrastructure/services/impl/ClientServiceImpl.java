@@ -1,8 +1,10 @@
 package com.hackobo.client.management.infrastructure.services.impl;
 
 import com.hackobo.client.management.domain.AddressDtoDomain;
+import com.hackobo.client.management.domain.ClientDtoDomain;
 import com.hackobo.client.management.domain.ClientTypeDtoDomain;
 import com.hackobo.client.management.infrastructure.repositories.impl.AddressRepositoryImpl;
+import com.hackobo.client.management.infrastructure.repositories.impl.ClientRepositoryImpl;
 import com.hackobo.client.management.infrastructure.repositories.impl.ClientTypeRepositoryImpl;
 import com.hackobo.client.management.infrastructure.services.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ public class ClientServiceImpl implements IClientService {
 
     @Autowired
     private ClientTypeRepositoryImpl clientTypeRepository;
+
+    @Autowired
+    private ClientRepositoryImpl clientRepository;
 
     @Override
     public List<AddressDtoDomain> listAddresses() {
@@ -42,5 +47,10 @@ public class ClientServiceImpl implements IClientService {
     @Override
     public ClientTypeDtoDomain addClientType(ClientTypeDtoDomain clientTypeDtoDomain) {
         return clientTypeRepository.save(clientTypeDtoDomain);
+    }
+
+    @Override
+    public List<ClientDtoDomain> clientList() {
+        return clientRepository.clientList();
     }
 }
