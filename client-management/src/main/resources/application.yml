@@ -18,7 +18,7 @@ spring:
       schema: clients
 
 proxy:
-  name: accountms
+  name: accountmanagement
   url: http://localhost:8084
 
 

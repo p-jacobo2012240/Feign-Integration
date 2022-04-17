@@ -3,6 +3,7 @@ package com.hackobo.client.management.infrastructure.controllers;
 import com.hackobo.client.management.domain.*;
 import com.hackobo.client.management.infrastructure.mappers.AddressMapperDto;
 import com.hackobo.client.management.infrastructure.mappers.ClientTypeDtoMapper;
+import com.hackobo.client.management.infrastructure.proxies.external.Account;
 import com.hackobo.client.management.infrastructure.services.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -58,5 +59,11 @@ public class ClientController {
     public ResponseEntity<ClientTypeDtoDomain> addClientType(@RequestBody ClientTypeCreatorDtoDomain creator) {
         ClientTypeDtoDomain clientTypeDtoDomain = clientService.addClientType(clientTypeDtoMapper.toDomain(creator));
         return new ResponseEntity<>(clientTypeDtoDomain, HttpStatus.OK);
+    }
+
+    @GetMapping("/test-accounts")
+    public ResponseEntity<List<Account>> accountList() {
+        List<Account> rawAccounts = clientService.accounts();
+        return new ResponseEntity<>(rawAccounts, HttpStatus.OK);
     }
 }
